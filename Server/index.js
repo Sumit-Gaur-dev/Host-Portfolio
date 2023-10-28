@@ -8,8 +8,8 @@ const path = require("path");
 dotenv.config();
 app.use(express.json());
 app.use(cors());
-app.use(router);
 app.use(express.static(path.join(__dirname, "../Client/build")));
+app.use(router);
 
 app.listen(process.env.PORT, () => {
   console.log(`app is listening on the port ${process.env.PORT}`);
