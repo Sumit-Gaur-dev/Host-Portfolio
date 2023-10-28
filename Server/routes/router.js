@@ -8,10 +8,6 @@ router.get("*", function (req, res) {
 
 router.post("/send", (req, res) => {
   const { enteredEmail, enteredName, message } = req.body;
-  const password = process.env.EMAIL;
-  console.log(enteredEmail, enteredName, message);
-  console.log(password);
-
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -31,12 +27,10 @@ router.post("/send", (req, res) => {
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       // Handle the error
-      console.log(error);
       res.status(401);
     } else {
       // Handle the success
-      console.log("Email sent successfully!");
-      res.json("email Send Successfully");
+      res.status(200);
     }
   });
 });
