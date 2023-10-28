@@ -11,6 +11,6 @@ app.use(cors());
 app.use(router);
 app.use(express.static(path.join(__dirname, "../Client/build")));
 
-app.listen(process.env.Port, () => {
+app.listen(process.env.PORT, () => {
   console.log(`app is listening on the port ${Port}`);
 });
