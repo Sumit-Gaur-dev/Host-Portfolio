@@ -2,7 +2,7 @@ const express = require("express");
 const router = new express.Router();
 const nodemailer = require("nodemailer");
 
-router.get("*", function (req, res) {
+router.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "../../Client/build/index.html"));
 });
 
@@ -30,7 +30,7 @@ router.post("/send", (req, res) => {
       res.status(401);
     } else {
       // Handle the success
-      res.status(200);
+      res.status(200).json("Success");
     }
   });
 });
